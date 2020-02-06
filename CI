@@ -1,0 +1,63 @@
+<?php 
+
+if(isset($argv[1]))
+{
+	if($argv[1] == 'make:controller')
+	{	
+
+		if(isset($argv[2]))
+		{
+			if(!is_dir('application'))
+			{
+				mkdir('application');
+				mkdir('application/controllers');	
+			}
+
+			$filename = rtrim($argv[2], '.php');
+
+			if(preg_match_all('/\W/', $filename, $matches))
+			{
+
+				$matches = implode(' ', $matches[0]);
+				echo "\nCannot make a file with '$matches' characters \n";
+				die;
+			}
+
+			if(!is_file($filename)){
+				$file = fopen("application/controllers/$filename.php", 'w');
+			}else{
+				echo "\nThe file is already exist!\n";
+				die;
+			}
+
+fwrite($file, "<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class {$argv[2]} extends CI_Controller {
+
+	public function index(){
+
+	}
+
+}
+");
+
+			echo "\nFile created!\n";
+			die;
+
+		}
+		else
+		{
+			echo "\nPlease insert the file name!\n";
+			die;
+		}
+
+
+	}
+}
+
+echo "\nNothing happen \n";
+
+
+?>

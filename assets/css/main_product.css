@@ -1,0 +1,126 @@
+/*----------------Main-Section----------------*/
+
+main.product{
+	margin-top: 180px;
+}
+
+/*-----------Showcase-----------*/
+
+.showcase .carousel .carousel-indicators .active{
+	background-color: var(--color-theme);
+}
+
+.showcase .carousel-inner .carousel-item{
+	height: 300px !important;
+}
+
+.showcase .carousel-inner .carousel-item img{
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover;
+}
+
+/*-------------Details-------------*/
+
+.details .product-name{
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+
+.details .product-price{
+	font-size: 28px;
+	color: var(--color-theme);
+}
+
+.details .product-price .old-price{
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.details .product-stock{
+	font-weight: bold;
+	font-size: 14px;
+	color: var(--color-theme);
+}
+
+.details .product-description{
+	font-size: 14px;
+	margin: 10px 0 20px 0;
+}
+
+.details .product-rating p{
+	margin-bottom: 20px; 
+	font-size: 18px;
+}
+
+.details .product-rating p span{
+	font-size: 13px;
+}
+
+.details p.product-category,
+.details p.store-name,
+.details p.store-contact{
+	font-size: 14px;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.details p.product-category a,
+.details p.store-name a,
+.details p.store-contact span{
+	text-decoration: none;
+	color: inherit;
+}
+
+.details p.product-category a:hover,
+.details p.store-name a:hover{
+	color: var(--color-theme);
+}
+
+
+/*----Note----*/
+
+.note label{
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+
+.note textarea{
+	width: 100%;
+	height: 120px;
+	padding: 5px 10px;
+	font-size: 14px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	outline: none;
+}
+
+
+/*--------Specification--------*/
+
+.specification ul{
+	list-style: none;
+	padding-left: 5px;
+}
+
+.specification ul li{
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.75);
+}
+
+
+@media only screen and (max-width: 520px)
+{
+	main.product{
+		margin-top: 50px;
+	}
+
+	.details .product-name{
+		font-size: 26px;
+	}
+
+	.details .product-price{
+		font-size: 24px;
+	}
+}

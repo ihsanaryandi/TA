@@ -1,0 +1,228 @@
+/*--------------Header-Section---------------*/
+
+/*Navbar*/
+
+.moonve-nav{
+	width: 100%;
+	height: 10vh;
+	position: relative;
+	background-color: var(--color-theme2);
+	box-sizing: border-box;
+}
+
+.moonve-nav .container.main{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+
+.moonve-nav .brand a{
+	font-size: 24px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.moonve-nav .brand a span{
+	color: var(--color-theme);
+}
+
+.moonve-nav .links{
+	width: 45%;
+	height: 100%;
+}
+
+.moonve-nav .links ul{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.moonve-nav .links li{
+	position: relative;
+}
+
+
+.moonve-nav .links .link{
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.moonve-nav .links .link:hover{
+	color: var(--color-theme);
+}
+
+.link i{
+	font-size: 13px;
+	position: relative;
+}
+
+.link .product-count{
+	background-color: red;
+	display: block;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	padding: 2px 5px;
+	color: #fff;
+	border-radius: 50%;
+	font-size: 10px;
+	text-align: center;
+}
+
+.moonve-nav .search-product{
+	border-bottom: 3px solid var(--color-theme);
+	width: 100%;
+	height: 8vh;
+	background-color: var(--color-theme2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 5px;
+}
+
+.moonve-nav .search-product .input-wrapper{
+	display: flex;
+	width: 50%;
+}
+	
+.search-product .input-wrapper .search-input,
+.search-product .input-wrapper .search-button{
+	border: none;
+	outline: none;	
+}
+
+.search-product .input-wrapper .search-input{
+	width: 100%;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding: 3px 20px;
+	font-size: 14px;
+}
+
+.search-product .input-wrapper .search-button{
+	width: 30%;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: var(--color-theme);
+	color: #fff;
+	transition: .3s ease;
+}
+
+.moonve-nav .categories{
+	background-color: var(--color-theme2);
+	height: 10vh;
+}
+
+.moonve-nav .categories .container{
+	height: 100%;
+}
+
+.moonve-nav .categories .category{
+	display: flex;
+	justify-content: flex-start;
+	list-style: none;
+	height: 100%;
+	align-items: center;
+}
+
+.moonve-nav .categories .category .category-name{
+	margin-right: 30px;
+	padding: 10px 10px;
+	position: relative;
+	z-index: 1;
+}
+
+.moonve-nav .categories .category .category-name.new::after{
+	content: 'NEW';
+	position: absolute;
+	width: 50%;
+	background-color: red;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	font-size: 8px;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.moonve-nav .categories .category .category-name .category-link{
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.moonve-nav .categories .category .category-name:hover .category-link{
+	color: var(--color-theme);
+}
+
+.moonve-nav .categories .category .category-name:hover .sub-category{
+	opacity: 1;
+	pointer-events: all;
+	transform: translateY(0);
+}
+
+.moonve-nav .categories .category .category-name:last-child{
+	margin-right: 0;
+}
+
+.moonve-nav .categories .category .category-name .sub-category{
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.7);
+	left: 0;
+	top: 100%;
+	width: 200px;
+	list-style: none;
+	padding: 10px 15px;
+	border-left: 5px solid var(--color-theme);
+	transform: translateY(20px);
+	opacity: 0;
+	pointer-events: none;
+	transition: .3s ease;
+	z-index: 1;
+}
+
+.moonve-nav .categories .category .category-name .sub-category li{
+	padding: 5px 0;
+	border-bottom: 1px solid #fff;
+	padding-left: 5px;
+}
+
+.moonve-nav .categories .category .category-name .sub-category li:last-child{
+	border-bottom: none;
+}
+
+.moonve-nav .categories .category .category-name .sub-category li a{
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	transition: .3s ease;
+	display: block;
+}
+
+.moonve-nav .categories .category .category-name .sub-category li a:hover{
+	transform: translate(10px, 0); 
+}
+
+@media only screen and (max-width: 770px)
+{
+	.moonve-nav .links{
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 520px)
+{
+
+
+	.moonve-nav .search-product .input-wrapper{
+		width: 90%;
+	}
+
+}
