@@ -66,16 +66,15 @@
 		<div class="categories desktop-only">
 			<div class="container">
 				<ul class="category">
-					<li class="category-name new">
-						<a href="#" class="category-link">Television</a>
-						<ul class="sub-category">
-							<li><a href="#">4K Display</a></li>
-							<li><a href="#">LED</a></li>
-						</ul>
-					</li>
-					<li class="category-name">
-						<a href="#" class="category-link">Computer</a>
-					</li>
+					<?php foreach($categories as $category) : ?>
+						<li class="category-name">
+							<a href="<?= base_url("products/$category->id/$category->category"); ?>" class="category-link"><?= $category->category; ?></a>
+							<!-- <ul class="sub-category">
+								<li><a href="#">4K Display</a></li>
+								<li><a href="#">LED</a></li>
+							</ul> -->
+						</li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 		</div>

@@ -25,7 +25,7 @@
 						<div class="text">
 							<h4>Contact Us</h4>
 							<ul>
-								<li>Call Service : 022-2430-222 <i class="fas fa-phone"></i></li>
+								<li>Service Call : 022-2430-222 <i class="fas fa-phone"></i></li>
 								<li>Email : moonve.electronic@shop.com <i class="fas fa-envelope"></i></li>
 								<li>Whatsapp : 08812242803 <i class="fab fa-whatsapp"></i></li>
 							</ul>
@@ -62,7 +62,7 @@
 <?= js('jquery/jquery'); ?>
 
 <!-- Bootstrap -->
-<?= js('bootstrap/bootstrap'); ?>
+<?= js('bootstrap/bootstrap.min'); ?>
 
 <!-- Custom Script -->
 <?= js('app'); ?>

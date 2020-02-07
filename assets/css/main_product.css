@@ -57,25 +57,32 @@ main.product{
 	font-size: 13px;
 }
 
-.details p.product-category,
-.details p.store-name,
-.details p.store-contact{
+.details p.detail{
 	font-size: 14px;
 	text-transform: uppercase;
 	color: rgba(0, 0, 0, 0.7);
 }
 
-.details p.product-category a,
-.details p.store-name a,
-.details p.store-contact span{
+.details p.detail a,
+.details p.detail span{
 	text-decoration: none;
 	color: inherit;
 }
 
-.details p.product-category a:hover,
-.details p.store-name a:hover{
+.details p.detail a:hover{
 	color: var(--color-theme);
 }
+
+.details p.detail span.color::after{
+	content: ',';
+	margin-right: 3px;
+}
+
+.details p.detail span.color:last-child::after{
+	content: '';
+}
+
+
 
 
 /*----Note----*/

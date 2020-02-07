@@ -40,8 +40,8 @@
 					<div class="col-lg-4 col-md-6 col-sm-6 my-2">
 						<div class="product-card">
 							<div class="product-img">
-								<a href="#">
-									<img src="<?= img($product->product_img); ?>">
+								<a href="<?= base_url("moonve/detail/$product->id"); ?>">
+									<img src="<?= img($product->img); ?>">
 								</a>
 								<div class="product-label">
 									<span class="new">NEW</span>
@@ -49,7 +49,7 @@
 							</div>
 							<div class="product-body">
 								<p class="product-category"><?= $product->category; ?></p>
-								<a class="product-name" href="#"><?= $product->product_name; ?></a>
+								<a class="product-name" href="<?= base_url("moonve/detail/$product->id"); ?>"><?= $product->product_name; ?></a>
 								<h4 class="product-price">Rp.<?= number_format($product->product_price); ?></h4>
 								<div class="product-rating">
 									<p class="like">
@@ -123,13 +123,13 @@
 					<div class="col-lg-4 col-md-6 col-sm-6 my-2">
 						<div class="product-card">
 							<div class="product-img">
-								<a href="#">
-									<img src="<?= img($product->product_img); ?>">
+								<a href="<?= base_url("moonve/detail/$product->id"); ?>">
+									<img src="<?= img($product->img); ?>">
 								</a>
 							</div>
 							<div class="product-body">
 								<p class="product-category"><?= $product->category; ?></p>
-								<a class="product-name" href="#"><?= $product->product_name; ?></a>
+								<a class="product-name" href="<?= base_url("moonve/detail/$product->id"); ?>"><?= $product->product_name; ?></a>
 								<h4 class="product-price">Rp.<?= number_format($product->product_price); ?></h4>
 								<div class="product-rating">
 									<p class="like">
