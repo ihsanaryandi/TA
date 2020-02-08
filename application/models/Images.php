@@ -17,8 +17,8 @@ class Images extends CI_Model {
 	public static function by_product($id){
 
 		return self::$ci->db->select('images.img')
-							->join('products', 'images.product_id = products.id')
-						    ->get_where('images', ['products.id' => $id])
+							->join('products', 'images.product_id = products.product_id')
+						    ->get_where('images', ['products.product_id' => $id])
 						    ->result();
 
 	}

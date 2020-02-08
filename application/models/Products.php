@@ -22,8 +22,8 @@ class Products extends CI_Model {
 
 	public static function random(){
 
-		return self::$ci->db->join('categories', self::$table . '.product_category = categories.id')
-							->join('images', self::$table . '.id = images.id')
+		return self::$ci->db->join('categories', self::$table . '.product_category = categories.category_id')
+							->join('images', self::$table . '.product_id = images.product_id')
 							->order_by('RAND()')
 							->get_where(self::$table, [self::$table . '.product_stock >' => 0])
 							->result();
@@ -32,9 +32,9 @@ class Products extends CI_Model {
 
 	public static function newProducts(){
 
-		return self::$ci->db->join('categories', self::$table . '.product_category = categories.id')
-							->join('images', self::$table . '.id = images.id')
-							->order_by(self::$table . '.id', 'DESC')
+		return self::$ci->db->join('categories', self::$table . '.product_category = categories.category_id')
+							->join('images', self::$table . '.product_id = images.product_id')
+							->order_by(self::$table . '.product_id', 'DESC')
 						    ->get(self::$table, 10)
 						    ->result();
 
@@ -42,22 +42,22 @@ class Products extends CI_Model {
 
 	public static function single($product_id){
 
-		return self::$ci->db->join('categories', self::$table . '.product_category = categories.id')
-							->join('seller', self::$table . '.seller_id = seller.id')
-							->get_where(self::$table, [self::$table . '.id' => $product_id])
+		return self::$ci->db->join('categories', self::$table . '.product_category = categories.category_id')
+							->join('seller', self::$table . '.seller_id = seller.seller_id')
+							->get_where(self::$table, [self::$table . '.product_id' => $product_id])
 							->row();
 
 	} 
 
 	public static function related($category_id, $product_id){
 
-		return self::$ci->db->join('categories', self::$table . '.product_category = categories.id')
-							->join('images', self::$table . '.id = images.id')
+		return self::$ci->db->join('categories', self::$table . '.product_category = categories.category_id')
+							->join('images', self::$table . '.product_id = images.product_id')
 							->order_by('RAND()')
 							->get_where(self::$table, [
-								'categories.id' => $category_id,
+								'categories.category_id' => $category_id,
 								self::$table . '.product_stock >' => 0,
-								self::$table . '.id !=' => $product_id
+								self::$table . '.product_id !=' => $product_id
 							], 8)
 							->result();
 
@@ -65,15 +65,23 @@ class Products extends CI_Model {
 
 	public static function by_seller($seller_id, $product_id){
 
-		return self::$ci->db->join('seller', self::$table . '.seller_id = seller.id')
-							->join('categories', self::$table . '.product_category = categories.id')
-							->join('images', self::$table . '.id = images.id')
+		return self::$ci->db->join('seller', self::$table . '.seller_id = seller.seller_id')
+							->join('categories', self::$table . '.product_category = categories.category_id')
+							->join('images', self::$table . '.product_id = images.product_id')
 							->order_by('RAND()')
 							->get_where(self::$table, [
-								'seller.id' => $seller_id,
+								'seller.seller_id' => $seller_id,
 								self::$table . '.product_stock >' => 0,
-								self::$table . '.id !=' => $product_id
+								self::$table . '.product_id !=' => $product_id
 							], 8)
+							->result();
+
+	}
+
+	public static function total_by_category(){
+
+		return self::$ci->db->join('categories', self::$table . '.product_category = categories.category_id')
+							->get(self::$table)
 							->result();
 
 	}

@@ -131,6 +131,7 @@ main.store{
 
 .filter .sort-by select{
 	background-color: #fff;
+	padding: 5px;
 }
 
 @media only screen and (max-width: 520px)

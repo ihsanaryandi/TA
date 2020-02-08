@@ -40,7 +40,7 @@
 					<div class="col-lg-4 col-md-6 col-sm-6 my-2">
 						<div class="product-card">
 							<div class="product-img">
-								<a href="<?= base_url("moonve/detail/$product->id"); ?>">
+								<a href="<?= base_url("moonve/detail/$product->product_id"); ?>">
 									<img src="<?= img($product->img); ?>">
 								</a>
 								<div class="product-label">
@@ -49,7 +49,7 @@
 							</div>
 							<div class="product-body">
 								<p class="product-category"><?= $product->category; ?></p>
-								<a class="product-name" href="<?= base_url("moonve/detail/$product->id"); ?>"><?= $product->product_name; ?></a>
+								<a class="product-name" href="<?= base_url("moonve/detail/$product->product_id"); ?>"><?= $product->product_name; ?></a>
 								<h4 class="product-price">Rp.<?= number_format($product->product_price); ?></h4>
 								<div class="product-rating">
 									<p class="like">
@@ -62,7 +62,7 @@
 									</p>
 								</div>
 								<div class="product-btns">
-									<a class="btn-add-to-cart" href="<?= base_url("moonve/detail/$product->id"); ?>">Add To Cart</a>
+									<a class="btn-add-to-cart" href="<?= base_url("moonve/detail/$product->product_id"); ?>">Add To Cart</a>
 								</div>
 							</div>
 						</div>	
@@ -123,13 +123,13 @@
 					<div class="col-lg-4 col-md-6 col-sm-6 my-2">
 						<div class="product-card">
 							<div class="product-img">
-								<a href="<?= base_url("moonve/detail/$product->id"); ?>">
+								<a href="<?= base_url("moonve/detail/$product->product_id"); ?>">
 									<img src="<?= img($product->img); ?>">
 								</a>
 							</div>
 							<div class="product-body">
 								<p class="product-category"><?= $product->category; ?></p>
-								<a class="product-name" href="<?= base_url("moonve/detail/$product->id"); ?>"><?= $product->product_name; ?></a>
+								<a class="product-name" href="<?= base_url("moonve/detail/$product->product_id"); ?>"><?= $product->product_name; ?></a>
 								<h4 class="product-price">Rp.<?= number_format($product->product_price); ?></h4>
 								<div class="product-rating">
 									<p class="like">
@@ -142,7 +142,7 @@
 									</p>
 								</div>
 								<div class="product-btns">
-									<a class="btn-add-to-cart" href="<?= base_url("moonve/detail/$product->id"); ?>">Add To Cart</a>
+									<a class="btn-add-to-cart" href="<?= base_url("moonve/detail/$product->product_id"); ?>">Add To Cart</a>
 								</div>
 							</div>
 						</div>

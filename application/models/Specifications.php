@@ -17,8 +17,8 @@ class Specifications extends CI_Model {
 	public static function by_product($id){
 
 		return self::$ci->db->select('spec')
-							->join('products', self::$table . '.product_id = products.id')
-							->get_where(self::$table, ['products.id' => $id])
+							->join('products', self::$table . '.product_id = products.product_id')
+							->get_where(self::$table, ['products.product_id' => $id])
 							->result();
 
 	}

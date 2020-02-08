@@ -43,7 +43,7 @@
 			</div>
 			<div class="links desktop-only">
 				<ul>
-					<li><a href="<?= base_url('moonve/store'); ?>" class="link">All Products</a></li>
+					<li><a href="<?= base_url('moonve/products'); ?>" class="link">All Products</a></li>
 					<li><a href="#" class="link">Login</a></li>
 					<li><a href="#" class="link">Register</a></li>
 					<li>
@@ -68,7 +68,7 @@
 				<ul class="category">
 					<?php foreach($categories as $category) : ?>
 						<li class="category-name">
-							<a href="<?= base_url("products/$category->id/$category->category"); ?>" class="category-link"><?= $category->category; ?></a>
+							<a href="<?= base_url("products/$category->category_id/$category->category"); ?>" class="category-link"><?= $category->category; ?></a>
 							<!-- <ul class="sub-category">
 								<li><a href="#">4K Display</a></li>
 								<li><a href="#">LED</a></li>
