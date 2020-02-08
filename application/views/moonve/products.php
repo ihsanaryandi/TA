@@ -11,13 +11,18 @@
 							<h3 class="aside-title">Categories</h3>
 							<form>
 								<ul class="aside-items">
-									<?php foreach($categories as $category) : ?>
+									<?php foreach($categories_aside as $category) : ?>
 										<li>
-											<div class="radio">
-												<input type="radio" name="radio" id="<?= $category->category; ?>" value="<?= $category->category_id; ?>">
-												<span></span>
+											<div class="d-inline-block" id="category">
+												<div class="radio">
+													<input type="radio" name="category" id="<?= $category->category; ?>" value="<?= $category->category_id; ?>">
+													<span></span>
+												</div>
+												<label for="<?= $category->category; ?>">
+													<?= $category->category; ?> 
+													<small>( <?= totalProductsByCategory($category->category_id); ?> )</small>
+												</label>
 											</div>
-											<label for="<?= $category->category; ?>"><?= $category->category; ?> <small>( <?= totalProductsByCategory($category->category_id); ?> )</small></label>
 										</li>
 									<?php endforeach; ?>
 								</ul>
@@ -28,34 +33,20 @@
 							<h3 class="aside-title">Brands</h3>
 							<form>
 								<ul class="aside-items">
-									<li>
-										<div class="radio">
-											<input type="radio" name="radio">
-											<span></span>
-										</div>
-										<label>Samsung <small>(120)</small></label>
-									</li>
-									<li>
-										<div class="radio">
-											<input type="radio" name="radio">
-											<span></span>
-										</div>
-										<label>Oppo <small>(120)</small></label>
-									</li>
-									<li>
-										<div class="radio">
-											<input type="radio" name="radio">
-											<span></span>
-										</div>
-										<label>LG <small>(120)</small></label>
-									</li>
-									<li>
-										<div class="radio">
-											<input type="radio" name="radio">
-											<span></span>
-										</div>
-										<label>Polytron <small>(120)</small></label>
-									</li>
+									<?php foreach($brands as $brand) : ?>
+										<li>
+											<div class="d-inline-block" id="brand">
+												<div class="radio">
+													<input type="radio" name="brand" id="<?= $brand->brand; ?>">
+													<span></span>
+												</div>
+												<label for="<?= $brand->brand; ?>">
+													<?= $brand->brand; ?> 
+													<small>( <?= totalProductsByBrand($brand->brand_id); ?> )</small>
+												</label>
+											</div>
+										</li>
+									<?php endforeach; ?>
 								</ul>
 							</form>
 						</div>
@@ -63,7 +54,7 @@
 						<div class="aside">
 							<h3 class="aside-title">Price</h3>
 							<form class="price-range">
-								<input class="custom-range" type="range" name="range">
+								<input class="custom-range" type="range" name="range" id="priceRange">
 								<small class="text-muted">
 									Price : 
 									<span>Rp.2.000.000</span>
@@ -79,7 +70,7 @@
 						<div class="filter">
 							<form>
 								<div class="sort-by">
-									<select>
+									<select id="sortBy">
 										<option>Sort 1</option>
 										<option>Sort 2</option>
 										<option>Sort 3</option>

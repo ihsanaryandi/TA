@@ -358,6 +358,13 @@ div.divider{
 	opacity: .95;
 }
 
+.moonve-btn.disabled{
+	background-color: #eaeaea;
+	color: rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
 
 /*----Default-Select----*/
 

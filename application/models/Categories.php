@@ -15,7 +15,7 @@ class Categories extends CI_Model {
 
 	public static function all()
 	{
-		return self::$ci->db->get(self::$table)->result();
+		return self::$ci->db->order_by('category', 'ASC')->get(self::$table)->result();
 	}
 
 	public static function random()

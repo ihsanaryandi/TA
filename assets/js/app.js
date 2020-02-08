@@ -47,7 +47,7 @@ $('.category .sub-menu-opener').on('click', function(){
 
 
 // ---------------Quantity--------------
-if($('.quantity')){
+if($('.quantity').length != 0){
 
 	const input = $('#quantityInput');
 	const increase = $('#increase');  
@@ -117,5 +117,37 @@ if($('.quantity')){
 		input.val(1)
 
 	})
+
+}
+
+// ------------Filtering-Products------------
+if(document.querySelector('main.store'))
+{
+	const categories = document.querySelectorAll('.store #category .radio input[type=radio]');
+	const brands = document.querySelectorAll('.store #brand');
+	const sortBy = document.querySelector('#sortBy');
+	const priceRange = document.querySelector('#priceRange');
+	const searchForm = document.querySelector('#searchForm');
+
+	categories.forEach(category => {
+
+		category.addEventListener('click', e => {
+
+			console.log('OK')
+
+		})
+
+	})
+
+
+	function requestData(e){
+
+		// const selectedCategory = document.querySelector('.store #category .radio input[type=radio]:checked');
+
+		// console.log(selectedCategory)
+
+		console.log('OK')
+
+	}
 
 }

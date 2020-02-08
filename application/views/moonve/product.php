@@ -41,55 +41,58 @@
 									<!-- <del class="old-price">Rp.3.000.000</del> -->
 								</div>
 								<div class="col-lg-3 col-sm-3">
-									<!-- If the count of stock is bigger than 10  -->
-									<h5 class="product-stock"><?= ($product->product_stock > 10) ? 'In Stock' : "$product->product_stock Remains"; ?></h5>
-									<!-- -------------------------------- -->
+									<?php if($product->product_stock > 0) : ?>
+										
+										<h5 class="product-stock"><?= ($product->product_stock > 10) ? 'In Stock' : "$product->product_stock Remains"; ?></h5>
 
-									<!-- if the count of stock is less than 10 -->
-									<!-- <h5 class="product-stock">10 Remains</h5> -->
-									<!-- -------------------------------- -->
+										<?php else : ?>
 
+										<h5 class="product-stock text-center text-uppercase text-danger">Sold Out</h5>
+									
+									<?php endif; ?>
 								</div>
 							</div>
 							<p class="product-description">
 								<?= $product->product_description; ?>
 							</p>
 							<div class="row justify-content-center">
-
-								<div class="col-lg-4 col-md-6 col-sm-4 col-5 my-2">
-									<div class="quantity">
-										<div class="custom-input-group">
-											<label for="">QTY</label>
-											<input type="text" name="quantity" id="quantityInput" value="1" data-length="<?= $colors[0]->stock; ?>">
-											<span class="increase" id="increase">
-												<i class="fas fa-plus"></i>
-											</span>
-											<span class="decrease" id="decrease"><i class="fas fa-minus"></i></span>
+								<?php if($product->product_stock > 0) : ?>
+									<div class="col-lg-4 col-md-6 col-sm-4 col-5 my-2">
+										<div class="quantity">
+											<div class="custom-input-group">
+												<label for="">QTY</label>
+												<input type="text" name="quantity" id="quantityInput" value="1" data-length="<?= $colors[0]->stock; ?>">
+												<span class="increase" id="increase">
+													<i class="fas fa-plus"></i>
+												</span>
+												<span class="decrease" id="decrease"><i class="fas fa-minus"></i></span>
+											</div>
 										</div>
 									</div>
-								</div>
 
-								<div class="col-lg-6 col-md-6 col-sm-6 col-7 my-2">
-									<div class="colors">
-										<div class="custom-input-group">
-											<label for="">Color</label>
-											<select name="color" id="colorSelect">
-												<?php $i = 0; foreach($colors as $color) : ?>
-													<option data-stock="<?= $color->stock; ?>"><?= $color->color; ?></option>
-												<?php endforeach; ?>
-											</select>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-7 my-2">
+										<div class="colors">
+											<div class="custom-input-group">
+												<label for="">Color</label>
+												<select name="color" id="colorSelect">
+													<?php $i = 0; foreach($colors as $color) : ?>
+														<option data-stock="<?= $color->stock; ?>"><?= $color->color; ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
 										</div>
 									</div>
-								</div>
-
+								<?php endif; ?>
 							</div>	
 							<div class="my-4">
-								<p class="detail">
-									Colors Available :
-									<?php foreach($colors as $color) : ?>
-										<span class="color"><?= "$color->color ($color->stock)"; ?></span>
-									<?php endforeach; ?>
-								</p>
+								<?php if($product->product_stock > 0) : ?>
+									<p class="detail">
+										Colors Available :
+										<?php foreach($colors as $color) : ?>
+											<span class="color"><?= "$color->color ($color->stock)"; ?></span>
+										<?php endforeach; ?>
+									</p>
+								<?php endif; ?>
 								<p class="detail">
 									Category : 
 									<a href="#"><?= $product->category; ?></a>
@@ -122,7 +125,7 @@
 					<textarea name="note" placeholder="Send a message for seller here..."></textarea>
 				</div>
 
-				<button class="moonve-btn" type="submit">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+				<button class="moonve-btn <?= ($product->product_stock > 0) ? '' : 'disabled'; ?>" type="submit">Add to Cart <i class="fas fa-shopping-cart"></i></button>
 				</form>
 				<hr>
 

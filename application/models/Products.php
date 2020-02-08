@@ -78,12 +78,4 @@ class Products extends CI_Model {
 
 	}
 
-	public static function total_by_category(){
-
-		return self::$ci->db->join('categories', self::$table . '.product_category = categories.category_id')
-							->get(self::$table)
-							->result();
-
-	}
-
 }

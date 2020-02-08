@@ -15,6 +15,7 @@ class Moonve extends CI_Controller {
 		$this->load->model('Images');
 		$this->load->model('Colors');
 		$this->load->model('Specifications');
+		$this->load->model('Brands');
 
 		$this->categories = Categories::random();
 	}
@@ -47,8 +48,9 @@ class Moonve extends CI_Controller {
 	{
 		$data['title'] = 'E-Commerce - All Products';
 		$data['categories'] = $this->categories;
+		$data['categories_aside'] = Categories::all();
 		$data['products'] = Products::random();
-		$data['products_amount'] = Products::total_by_category();
+		$data['brands'] = Brands::all();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

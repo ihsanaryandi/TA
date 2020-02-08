@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="desktop-only search-product">
-			<form class="input-wrapper" action="<?= base_url('moonve/cart'); ?>" method="POST">
+			<form class="input-wrapper" action="<?= base_url('moonve/cart'); ?>" method="POST" id="searchForm">
 				<input class="search-input" type="text" name="search" placeholder="Search Product">
 				<button class="search-button" type="submit"><i class="fas fa-search"></i></button>
 			</form>
@@ -68,7 +68,7 @@
 				<ul class="category">
 					<?php foreach($categories as $category) : ?>
 						<li class="category-name">
-							<a href="<?= base_url("products/$category->category_id/$category->category"); ?>" class="category-link"><?= $category->category; ?></a>
+							<a href="<?= base_url("moonve/products/$category->category_id/$category->category"); ?>" class="category-link"><?= $category->category; ?></a>
 							<!-- <ul class="sub-category">
 								<li><a href="#">4K Display</a></li>
 								<li><a href="#">LED</a></li>
