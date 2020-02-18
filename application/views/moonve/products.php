@@ -15,7 +15,7 @@
 										<li>
 											<div class="d-inline-block" id="category">
 												<div class="radio">
-													<input type="radio" name="category" id="<?= $category->category; ?>" value="<?= $category->category_id; ?>">
+													<input type="radio" name="category" id="<?= $category->category; ?>" value="<?= $category->category; ?>">
 													<span></span>
 												</div>
 												<label for="<?= $category->category; ?>">
@@ -37,7 +37,7 @@
 										<li>
 											<div class="d-inline-block" id="brand">
 												<div class="radio">
-													<input type="radio" name="brand" id="<?= $brand->brand; ?>">
+													<input type="radio" name="brand" id="<?= $brand->brand; ?>" value="<?= $brand->brand; ?>">
 													<span></span>
 												</div>
 												<label for="<?= $brand->brand; ?>">
@@ -54,10 +54,10 @@
 						<div class="aside">
 							<h3 class="aside-title">Price</h3>
 							<form class="price-range">
-								<input class="custom-range" type="range" name="range" id="priceRange">
+								<input class="custom-range" type="range" name="range" id="priceRange" value="0">
 								<small class="text-muted">
 									Price : 
-									<span>Rp.2.000.000</span>
+									<span id="priceDisplay"></span>
 								</small>
 							</form>
 						</div>
@@ -67,7 +67,7 @@
 
 					<!-- --------------Filter-------------- -->
 					<div class="col-lg-9">
-						<div class="filter">
+						<div class="filter d-flex justify-content-between">
 							<form>
 								<div class="sort-by">
 									<select id="sortBy">
@@ -78,9 +78,10 @@
 									</select>
 								</div>
 							</form>
+							<button class="reset" id="resetFilter">Reset Filter</button>
 						</div>
 
-						<div class="row">
+						<div class="row" id="allProducts">
 							<?php foreach($products as $product) : ?>
 								<div class="col-lg-4 col-md-4 col-sm-6 my-2">
 									<div class="product-card">

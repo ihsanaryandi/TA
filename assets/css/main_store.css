@@ -1,7 +1,7 @@
 /*--------------Main-Section--------------*/
 
 main.store{
-	margin-top: 150px;
+	margin-top: 200px;
 }
 
 /*-----------Aside-----------*/
@@ -132,6 +132,18 @@ main.store{
 .filter .sort-by select{
 	background-color: #fff;
 	padding: 5px;
+}
+
+.filter .reset{
+	border: none; 
+	background-color: var(--color-theme); 
+	color: #fff; 
+	padding: 2px 10px;
+	transition: .2s;
+}
+
+.filter .reset:hover{
+	opacity: .95;
 }
 
 @media only screen and (max-width: 520px)

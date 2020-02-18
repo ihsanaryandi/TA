@@ -77,6 +77,7 @@ function request_method($method)
 	else
 	{
 		back();
+		die;
 	}
 	
 }
@@ -85,6 +86,7 @@ function back()
 {
 
 	echo '<script>window.history.back()</script>';
+	die;
 
 }
 

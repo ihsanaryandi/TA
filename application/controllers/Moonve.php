@@ -28,6 +28,7 @@ class Moonve extends CI_Controller {
 		$data['categories'] = $this->categories;
 
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/login_modal', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('moonve/index', $data);
 		$this->load->view('templates/footer', $data);
@@ -53,6 +54,7 @@ class Moonve extends CI_Controller {
 		$data['brands'] = Brands::all();
 
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/login_modal', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('moonve/products', $data);
 		$this->load->view('templates/footer', $data);
@@ -84,6 +86,30 @@ class Moonve extends CI_Controller {
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('moonve/product', $data);
 		$this->load->view('templates/footer', $data);
+
+	}
+
+	public function getProducts()
+	{
+
+		request_method('POST');
+
+		$data = json_decode(file_get_contents("php://input"));
+
+		$products = $this->db->select('products.product_id, product_name, product_price, img, category')
+							 ->from('products')
+							 ->join('brands', 'brand_id = product_brand')
+							 ->join('categories', 'category_id = product_category')
+							 ->join('images', 'images.product_id = products.product_id')
+							 ->like('product_name', $data->search)
+							 ->like('category', $data->category)
+							 ->like('brand', $data->brand)
+							 ->where('product_price >=', $data->price)
+							 ->order_by('product_price', 'ASC')
+							 ->get()
+							 ->result();
+
+		echo json_encode($products);
 
 	}
 

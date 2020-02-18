@@ -51,7 +51,7 @@ function make($argv, $type)
 		mkdir('application/'. $type .'s');	
 	}
 
-	$filename = rtrim($argv, '.php');
+	$filename = rtrim(rtrim($argv, 'php'), '.');
 
 	if(preg_match_all('/\W/', $filename, $matches))
 	{
@@ -74,7 +74,7 @@ fwrite($file, "<?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class $argv extends CI_". ucfirst($type) ." {
+class $filename extends CI_". ucfirst($type) ." {
 
 	public function $method(){
 
